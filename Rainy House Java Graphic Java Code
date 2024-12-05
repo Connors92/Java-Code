@@ -1,0 +1,81 @@
+import javax.swing.*;
+import java.awt.*;
+
+public class ProgrammingAssignment25ExtraCredit extends JPanel {
+    private int sunX = 50;
+    private int rainY = 0;
+
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("Animated House");
+        ProgrammingAssignment25ExtraCredit panel = new ProgrammingAssignment25ExtraCredit();
+
+        frame.add(panel);
+        frame.setSize(800, 600);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
+
+        while (true) {
+            panel.sunX += 5;
+            if (panel.sunX > 800) {
+                panel.sunX = -50;
+            }
+
+            panel.rainY += 10;
+            if (panel.rainY > 600) {
+                panel.rainY = 0;
+            }
+
+            panel.repaint();
+            try {
+                Thread.sleep(50);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        g.setColor(Color.CYAN);
+        g.fillRect(0, 0, 800, 600);
+
+        g.setColor(Color.GREEN);
+        g.fillRect(0, 400, 800, 200);
+
+        drawHouse(g);
+
+        g.setColor(Color.YELLOW);
+        g.fillOval(sunX, 50, 50, 50);
+
+        g.setColor(Color.BLUE);
+        for (int i = 0; i < 800; i += 50) {
+            g.fillRect(i, rainY, 5, 10);
+        }
+    }
+
+    private void drawHouse(Graphics g) {
+        g.setColor(Color.RED);
+        g.fillRect(300, 300, 200, 150);
+
+        g.setColor(Color.DARK_GRAY);
+        Polygon roof = new Polygon();
+        roof.addPoint(300, 300);
+        roof.addPoint(500, 300);
+        roof.addPoint(400, 200);
+        g.fillPolygon(roof);
+
+        g.setColor(Color.ORANGE);
+        g.fillRect(370, 370, 60, 80);
+
+        g.setColor(Color.WHITE);
+        g.fillRect(320, 320, 50, 40);
+        g.fillRect(430, 320, 50, 40);
+
+        g.setColor(Color.BLACK);
+        g.drawLine(320, 340, 370, 340);
+        g.drawLine(345, 320, 345, 360);
+        g.drawLine(430, 340, 480, 340);
+        g.drawLine(455, 320, 455, 360);
+    }
+}
