@@ -1,0 +1,24 @@
+//The purpose of this code is to Write a method called padString that accepts two 
+parameters: a string and an integer representing a length. The method should pad 
+the parameter string with spaces OR stars "*" until its length is the given size 
+It should then RETURN the new string.
+public class Homework8 {
+ public static String padString(String s, int length, char padChar) {
+ int paddingNeeded = Math.max(0, length - s.length());
+ return s + String.valueOf(padChar).repeat(paddingNeeded);
+ }
+ public static void main(String[] args) {
+ String[] examples = {"Hello", "Hello", "Hello", "Hello", "Pad"};
+ int[] lengths = {10, 12, 5, 3, 8};
+ System.out.println("Padding with spaces:");
+ for (int i = 0; i < examples.length; i++) {
+ System.out.println("\"" + padString(examples[i], lengths[i], ' ') + 
+"\"");
+ }
+ System.out.println("\nPadding with stars:");
+ for (int i = 0; i < examples.length; i++) {
+ System.out.println("\"" + padString(examples[i], lengths[i], '*') + 
+"\"");
+ }
+ }
+}
