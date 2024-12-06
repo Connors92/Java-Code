@@ -1,0 +1,21 @@
+// This programming behavior is to write a program that will take each person, read
+their name, hours, and wage and output what their paycheck for the week should be.
+import java.util.*; // for Scanner
+import java.io.*; // for File
+public class File_Demo
+{
+ public static void main(String[] args)
+ throws FileNotFoundException
+ {
+ File file = new File("NameWageInfo.dat");
+ Scanner input = new Scanner(file);
+ while (input.hasNext())
+ {
+ String name = input.next();
+ double hour = input.nextDouble();
+ double wage = input.nextDouble();
+ System.out.println(name + " should receive $" + hour*wage + " this 
+week.");
+ }
+ }
+}
