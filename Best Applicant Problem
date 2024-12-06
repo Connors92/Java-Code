@@ -1,0 +1,76 @@
+// The purpose of this code is to make a program that will prompt the user for 
+information about two applicants and compute an overall score for each applicant. 
+This is a simplified version of a program that might be used for admissions 
+purposes.
+import java.util.Scanner;
+public class Admit {
+ public static void main(String[] args) {
+ Scanner console = new Scanner(System.in);
+ System.out.println("Information for applicant #1:");
+ double applicant1Score = getApplicantScore(console);
+ System.out.println("\nInformation for applicant #2:");
+ double applicant2Score = getApplicantScore(console);
+ compareApplicants(applicant1Score, applicant2Score);
+ }
+ public static double getApplicantScore(Scanner console) {
+ double examScore = getExamScore(console);
+ double gpaScore = getGPAScore(console);
+ double overallScore = examScore + gpaScore;
+ printResult(examScore, gpaScore, overallScore);
+ return overallScore;
+ }
+ public static double getExamScore(Scanner console) {
+ System.out.print("Do you have 1) SAT scores or 2) ACT scores? ");
+ int examType = console.nextInt();
+ if (examType == 1) {
+ return getSATScore(console);
+ } else {
+ return getACTScore(console);
+ }
+ }
+ public static double getSATScore(Scanner console) {
+ System.out.print("SAT math? ");
+ int math = console.nextInt();
+ System.out.print("SAT reading? ");
+ int reading = console.nextInt();
+ System.out.print("SAT writing? ");
+ int writing = console.nextInt();
+ return (math + reading + writing) / 24.0;
+ }
+ public static double getACTScore(Scanner console) {
+ System.out.print("ACT English? ");
+ int english = console.nextInt();
+ System.out.print("ACT math? ");
+ int math = console.nextInt();
+ System.out.print("ACT reading? ");
+ int reading = console.nextInt();
+ System.out.print("ACT science? ");
+ int science = console.nextInt();
+ return (english + math + reading + science) / 1.8;
+ }
+ public static double getGPAScore(Scanner console) {
+ System.out.print("Overall GPA? ");
+ double gpa = console.nextDouble();
+ System.out.print("Max GPA? ");
+ double maxGpa = console.nextDouble();
+ System.out.print("Transcript multiplier? ");
+ double multiplier = console.nextDouble();
+ return (gpa / maxGpa) * 100 * multiplier;
+ }
+ public static void compareApplicants(double score1, double score2) {
+ System.out.println();
+ if (score1 > score2) {
+ System.out.println("The first applicant seems to be better.");
+ } else if (score2 > score1) {
+ System.out.println("The second applicant seems to be better.");
+ } else {
+ System.out.println("The two applicants seem to be equal.");
+ }
+ }
+ public static void printResult(double examScore, double gpaScore, double 
+overallScore) {
+ System.out.printf("Exam score = %.1f%n", examScore);
+ System.out.printf("GPA score = %.1f%n", gpaScore);
+ System.out.printf("Overall score = %.1f%n", overallScore);
+ }
+}
