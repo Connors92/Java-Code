@@ -1,0 +1,15 @@
+// The purpose of this code in to define a printQuadratic method to solve the 
+quadratic equation and print the roots. The main method tests the function with the
+two provided examples.
+ public static void printQuadratic(int a, int b, int c) {
+ int x = b * b - 4 * a * c;
+ double root1 = (-b + Math.sqrt(x)) / (2 * a);
+ double root2 = (-b - Math.sqrt(x)) / (2 * a);
+ System.out.println("x = " + root1 + ", x = " + root2);
+ }
+ public static void main(String[] args) {
+ System.out.println("For x^2 - 7x + 12:");
+ printQuadratic(1, -7, 12);
+ System.out.println("\nFor 2x^2 + 6x + 4:");
+ printQuadratic(2, 6, 4);
+ }
