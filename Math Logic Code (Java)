@@ -1,0 +1,43 @@
+// The purpose of this code is to calculate, print, and answer various mathematical
+expressions. Comments are to explain the logic.
+public class Homework3 {
+ public static void main(String[] args) {
+ System.out.println(3 - 1); // Answer is 2 because the difference is printed out
+ System.out.println(2 + 2 + 3 + 4);// Answer is 11 because the sum is printed 
+out
+ System.out.println(2 + 2 + 3.1 + 4);// Answer is 11.1 because when a double 
+(3.1) is present, all integers are promoted to double for floating-point addition.
+ System.out.println(2 + " 2 + 3 " + 4 );// Answer is 2 2 + 3 4 because the first
+integer 2 is concatenated with the string " 2 + 3 ". Then 4 is concatenated, 
+forming "2 2 + 3 4". System.out.println(3 + 4 + " 2 + 2");// Answer is 7 2 + 2 
+because 
+ System.out.println(2 + 2 + (3 / 4));// Answer is 4 because the integers 3 + 4
+= 7, which is then concatenated with the string " 2 + 2".
+ System.out.println((12 / 2) + (13 / 4.0));// Answer is 9.25 because integer 
+division 12 / 2 = 6, and floating-point division 13 / 4.0 = 3.25. Adding both gives
+9.25.
+ System.out.println("hello" + 2 * 4);// Answer is hello8 because the 
+multiplication 2 * 4 = 8, which is concatenated with "hello" to give "hello8"
+ System.out.println(2 + 2.0 + 2 * 2 + 2);// Answer is 10.0 because java 
+multiplies first (2 * 2 = 4), and then performs floating-point addition due to 2.0,
+resulting in 2 + 2.0 + 4 + 2 = 10.0.
+ System.out.println(4 + 1 + 9 + .01 + (-3 + 10) + 11 / 3);// Answer is 
+24.009999999999998 because java adds and divides: (-3 + 10 = 7) and 11 / 3 = 3. The
+final sum is 4 + 1 + 9 + .01 + 7 + 3 = 24.009999999999998
+ System.out.println(8 + 16 / 5 + 4 + 0 + 12 / 5.0);// Answer is 17.4 because 
+integer division 16 / 5 = 3, floating-point division 12 / 5.0 = 2.4. The result is 
+8 + 3 + 4 + 0 + 2.4 = 17.4.
+ System.out.println(1 + 1 + (8 - 2) * 1 + 1);// Answer is 9 because parentheses 
+evaluated first: 8 - 2 = 6, then multiplication and addition gives 1 + 1 + 6 + 1 = 
+9.
+ System.out.println(5 + 2 + "(1 + 1)" + 4 + 2 * 3);// Answer is 7(1 + 1)46 
+because java adds 5 + 2 = 7, concatenates the string "(1 + 1)", multiplies 2 * 3 = 
+6, then concatenates the final values to form "7(1 + 1)46".
+ System.out.println("1" + 2 + 3 + "4" + 5 * 6 + "7" + (8 + 9));// Answer is 
+123430717 because java multiplies 5 * 6 = 30 and adds 8 + 9 = 17. Then it 
+concatenates: "1" + 2 + 3 = "123", "123" + "4" = "1234", and finally "1234" + 30 + 
+"7" + 17 = "123430717".
+ 
+ }
+}
+ 
