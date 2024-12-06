@@ -1,0 +1,35 @@
+// The purpose of this assignment is to write a method called vowelCount that 
+accepts a String as a parameter and produces/returns an array of integers 
+representing the count of each vowel in the String. 
+import java.util.Scanner;
+public class ProgrammingAssignment17 {
+ public static void main(String[] args) {
+ Scanner scanner = new Scanner(System.in);
+ System.out.println("Enter lines to analyze (type 'STOP' to quit):");
+ while (true) {
+ System.out.print("Enter a line: ");
+ String line = scanner.nextLine();
+ if (line.equalsIgnoreCase("STOP")) {
+ break;
+ }
+ int[] counts = vowelCount(line);
+ System.out.println("Vowel counts: [A=" + counts[0] + ", E=" + counts[1]
++ ", I=" + counts[2]
+ + ", O=" + counts[3] + ", U=" + counts[4] + "]");
+ }
+ }
+ public static int[] vowelCount(String input) {
+ int[] counts = new int[5];
+ input = input.toLowerCase();
+ for (char c : input.toCharArray()) {
+ switch (c) {
+ case 'a' -> counts[0]++;
+ case 'e' -> counts[1]++;
+ case 'i' -> counts[2]++;
+ case 'o' -> counts[3]++;
+ case 'u' -> counts[4]++;
+ }
+ }
+ return counts;
+ }
+}
