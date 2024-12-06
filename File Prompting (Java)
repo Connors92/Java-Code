@@ -1,0 +1,42 @@
+// The purpose of this assignment is write a program that asks the user 4 
+questions:How many random numbers do they want? What is the smallest random number?
+What is the largest random number? What filename do they want to use?
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Random;
+import java.util.Scanner;
+public class Assignment15 {
+ public static void main(String[] args) {
+ Scanner scanner = new Scanner(System.in);
+ // Get user input for the number of random numbers, range, and filename
+ System.out.print("How many random numbers do you want? ");
+ int count = scanner.nextInt();
+ System.out.print("What is the smallest random number? ");
+ int min = scanner.nextInt();
+ System.out.print("What is the largest random number? ");
+ int max = scanner.nextInt();
+ System.out.print("What filename do you want to use? ");
+ scanner.nextLine(); // Consume the leftover newline
+ String filename = scanner.nextLine();
+ // Generate random numbers and write to the file
+ try (FileWriter writer = new FileWriter(filename)) {
+ Random random = new Random();
+ int numbersPerLine = 5;
+ for (int i = 1; i <= count; i++) {
+ int randomNumber = random.nextInt((max - min) + 1) + min;
+ writer.write(String.valueOf(randomNumber));
+ // Add comma or newline as needed
+ if (i % numbersPerLine == 0) {
+ writer.write("\n");
+ } else if (i != count) {
+ writer.write(",");
+ }
+ }
+ System.out.println("Random numbers successfully written to " + 
+filename);
+ } catch (IOException e) {
+ System.out.println("An error occurred while writing to the file.");
+ e.printStackTrace();
+ }
+ }
+}
