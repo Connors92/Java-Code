@@ -1,0 +1,30 @@
+// The purpose of this code is to write a int method named randomWalk(int x) that 
+performs a random one-dimensional walk, reporting each position reached and the 
+maximum position reached during the walk.
+import java.util.Random;
+public class RandomWalk {
+ public static int randomWalk(int x) {
+ Random rand = new Random();
+ int position = 0;
+ int steps = 0;
+ int maxPosition = 0;
+ System.out.println("position = " + position);
+ while (position < x && position > -x) {
+ if (rand.nextBoolean()) {
+ position++; // Move right
+ } else {
+ position--; // Move left
+ }
+ steps++;
+ maxPosition = Math.max(maxPosition, Math.abs(position));
+ System.out.println("position = " + position);
+ }
+ System.out.println("Max position reached: " + maxPosition);
+ System.out.println("Steps: " + steps);
+ return steps;
+ }
+ public static void main(String[] args) {
+ int x = 30;
+ randomWalk(x);
+ }
+}
