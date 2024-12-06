@@ -1,0 +1,47 @@
+// The purpose of this assignment is to for each person on the list, find their 
+total salary for the week and print out the vital info.
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.text.DecimalFormat;
+public class Assignment14 {
+ public static void main(String[] args) {
+ String filePath = "End User.Documents.CS141 Assign14.txt";
+ DecimalFormat df = new DecimalFormat("#.00");
+ try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) 
+{
+ String line;
+ while ((line = reader.readLine()) != null) {
+ line = line.trim();
+ if (line.isEmpty()) {
+ continue; // Skip empty lines
+ }
+ // Split line into components
+ String[] parts = line.split("\\s+");
+ String name = parts[0];
+ double hourlyRate = Double.parseDouble(parts[1]);
+ // Parse hours worked and calculate total hours
+ int totalHours = 0;
+ for (int i = 2; i < parts.length; i++) {
+ totalHours += Integer.parseInt(parts[i]);
+ }
+ // Calculate gross and net pay
+ double grossPay = totalHours * hourlyRate;
+ double taxRate = (grossPay >= 400) ? 0.33 : 0.25;
+ double netPay = grossPay * (1 - taxRate);
+ // Print the results
+ System.out.println(name + " worked for a total of: " + totalHours +
+" hours at $" + df.format(hourlyRate)
+ + " an hour for a gross pay of $" + df.format(grossPay) + 
+".");
+ System.out.println("After " + (int)(taxRate * 100) + "% taxes, 
+their total net pay should be $" + df.format(netPay) + ".");
+ }
+ } catch (IOException e) {
+ e.printStackTrace();
+ } catch (NumberFormatException e) {
+ System.out.println("Error parsing number. Please check the data 
+format.");
+ }
+ }
+}
