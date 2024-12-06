@@ -1,0 +1,17 @@
+// The purpose of this program is to rite a method called kthLargest() that accepts
+an integer x and an array a of integers as its parameters. It should then return 
+the elements that that k elements of greater or equal value. So if k = 0 return 
+the largest element. If k = 1. return the second-largest element, and so on.
+import java.util.* 
+ public static int kthLargest(int x, int[] a) {
+ if (x < 0 || x >= a.length) {
+ return -9999;
+ }
+ 
+ // Make a copy of the array to avoid modifying the original array
+ int[] copy = Arrays.copyOf(a, a.length);
+ 
+ // Sort the copied array in descending order
+ Arrays.sort(copy);
+ for (int i = 0; i < copy.length / 2; i++) {
+ int temp = copy[i
