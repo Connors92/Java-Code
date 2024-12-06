@@ -1,0 +1,19 @@
+// The purpose of this Java code is to simulate the exponential growth of rice 
+grains over 30 days based on the story given where the number of grains doubles 
+each day.
+public class Homework4 {
+ public static void main(String[] args) {
+ int daysInMonth = 30; // Number of days in the month
+ long riceCount = 1; // Rice grains for day 1
+ long totalRiceCount = 0; // Total rice grains given
+ // Loop through each day and calculate rice count
+ for (int day = 1; day <= daysInMonth; day++) {
+ totalRiceCount += riceCount; // Add rice grains of the day to total
+ System.out.println("Day # " + day + " - Rice count = " + riceCount + " 
+- Total Rice count = " + totalRiceCount);
+ riceCount *= 2; // Double the rice for the next day
+ }
+ // Output the total rice at the end
+ System.out.println("\nTotal Rice was = " + totalRiceCount);
+ }
+}
