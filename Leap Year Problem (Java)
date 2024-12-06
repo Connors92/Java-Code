@@ -1,0 +1,30 @@
+// The purpose of this Java code is to write a method called daysInMonth() that 
+takes in a month (as an integer) and an integer year as parameters and returns the 
+number of days in that month as an integer.public class Homework4 {
+ public class Homework9 {
+ public static int daysInMonth(int month, int year) {
+ if (year < 1700) {
+ return -1;
+ }
+ if (month < 1 || month > 12) {
+ return -1;
+ }
+ int days = 31;
+ if (month == 4 || month == 6 || month == 9 || month == 11) {
+ days = 30;
+ }
+ if (month == 2) {
+ boolean isLeapYear = (year % 400 == 0) || (year % 100 != 0 && year % 4 
+== 0);
+ days = isLeapYear? 29 : 28;
+ }
+ return days;
+ }
+ public static void main(String[] args) {
+ System.out.println("January 2000: " + daysInMonth(1, 2000)); 
+ System.out.println("February 2000: " + daysInMonth(2, 2000)); 
+ System.out.println("February 1900: " + daysInMonth(2, 1900)); 
+ System.out.println("April 2023: " + daysInMonth(4, 2023)); 
+ System.out.println("Invalid month 13: " + daysInMonth(13, 2023));
+ }
+}
