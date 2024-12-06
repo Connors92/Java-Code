@@ -8,6 +8,7 @@ import java.util.*
  return -9999;
  }
  
+
  // Make a copy of the array to avoid modifying the original array
  int[] copy = Arrays.copyOf(a, a.length);
  
