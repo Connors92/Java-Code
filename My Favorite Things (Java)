@@ -1,0 +1,13 @@
+/ This program's behavior is listing my full name, preferred name, favorite food, 
+and current favorite past time
+public class Homework1 {
+ public static void main(String[] args) 
+ {
+ System.out.println("/////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\");
+ System.out.println("// Connor Macklin Gronsky \\\\");
+ System.out.println("// Connor \\\\");
+ System.out.println("// Pasta \\\\");
+ System.out.println("// Ski Racing \\\\");
+ System.out.println("/////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\");
+   }
+}
